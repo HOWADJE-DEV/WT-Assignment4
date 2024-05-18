@@ -60,7 +60,7 @@ router.use(postRouter);
 
 // Redirect to localhost:4200
 app.get('/', (req, res) => {
-    res.redirect('http://localhost:4200');
+    res.redirect('https://wt-assignment4.onrender.com');
 });
 
 // Debug message, using port on
