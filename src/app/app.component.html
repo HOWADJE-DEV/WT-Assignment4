@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Layout</title>
 </head>
-<body>
+<body style="height: auto;">
 
 <header>
   <div style="display: flex; align-items: center; justify-content: center;">
@@ -29,14 +29,14 @@
 
   <div class="buttons">
     <div class="button-container">
-      <button *ngIf="token" mat-button (click)="openCreatePost()">Create post</button>
-      <button *ngIf="userInfo?.expert" mat-button (click)="toggleArchivePosts()">
+      <button *ngIf="token" mat-raised-button color="primary" (click)="openCreatePost()">Create post</button>
+      <button *ngIf="userInfo?.expert" mat-raised-button color="accent" (click)="toggleArchivePosts()">
         {{ hideArchivePost ? 'Show Archive Post' : 'Hide Archive Post' }}
       </button>
     </div>
   </div>
 
-  <div *ngFor="let post of posts">
+  <div *ngFor="let post of posts" style="background-color: rgba(255, 255, 255, 0.8);">
     <div class="question-post">
       <h2>{{ post?.title }}</h2>
       <div class="separator"></div>

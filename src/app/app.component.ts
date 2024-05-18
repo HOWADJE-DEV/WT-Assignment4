@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
   openCreatePost() {
     const dialogRef = this.dialog.open(CreatePostComponent, {
       width: '50%',
-      height: '50%'
+      height: '50%',
     });
   }
 
