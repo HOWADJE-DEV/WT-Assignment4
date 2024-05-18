@@ -86,9 +86,16 @@ body {
   }
 
   .page-navigation {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    white-space: nowrap;
+    padding: 5px;
     position: relative;
-    right: 25%;
+    width:min-content;
     text-align: right;
+    gap: 5px;
+    left: 70%;
+    border-bottom: 1px solid black;
   }
 
   .star-rating .material-icons {
@@ -126,4 +133,18 @@ body {
 
 .transparent .mat-dialog-container {
   background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #212529;
+  text-align: center;
+  padding: 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer a {
+  color: #212529;
 }

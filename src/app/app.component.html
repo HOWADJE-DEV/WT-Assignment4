@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Layout</title>
 </head>
-<body style="height: auto;">
+<body style="height: max-content; min-height: 100%;">
 
 <header>
   <div style="display: flex; align-items: center; justify-content: center;">
@@ -72,6 +72,15 @@
   <button [disabled]="page === 1" (click)="previousPage()">Previous</button>
   <span>Page: {{ page }} / {{ pagesNeeded }} </span>
   <button [disabled]="page === pagesNeeded" (click)="nextPage()">Next</button>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>&copy; 2024 MattAlex Q&A.com. No rights reserved.</p>
+    <p><a>This is a Web Dev project</a> | <a href="https://www.griffith.ie/">Griffith College Dublin Computing Faculty</a></p>
+    <p>Contact us: <a href="matteo.perus@epitech.eu">matteo.perus&#64;epitech.eu</a><a> &   </a>
+      <a href="alexis.roye@epitech.eu">alexis.roye&#64;epitech.eu</a></p>
+  </div>
 </div>
 </body>
 

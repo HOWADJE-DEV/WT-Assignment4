@@ -6,7 +6,7 @@
             <label for="title">Title:</label><br>
             <input type="text" [(ngModel)]="postData.title" name="title" required><br>
             <label for="title">Content:</label><br>
-            <textarea type="text" [(ngModel)]="postData.content" name="content" required style="height: 90%; width: 90%;"></textarea><br>
+            <textarea type="text" [(ngModel)]="postData.content" name="content" required style="height: max-content ; width: 98%;"></textarea><br>
             <input type="hidden" [(ngModel)]="postData.token" name="token">
             <div class="bottom-elements">
               <mat-dialog-actions class="button-container">
