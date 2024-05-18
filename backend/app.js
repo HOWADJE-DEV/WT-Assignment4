@@ -25,13 +25,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-app.use((req, res, next) => { 
-    res.header("Access-Control-Allow-Origin",  
-               "http://localhost:4200"); 
-    res.header("Access-Control-Allow-Headers",  
-               "Origin, X-Requested-With, Content-Type, Accept"); 
-    next(); 
-}); 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin",
+               "http://localhost:4200");
+    res.header("Access-Control-Allow-Headers",
+               "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 // Middleware for JWT authentication (user token)
 app.use(async (req, res, next) => {
@@ -58,8 +58,9 @@ app.use(router);
 router.use(userRouter);
 router.use(postRouter);
 
+// Redirect to localhost:4200
 app.get('/', (req, res) => {
-    res.send('Hello World, youre in the wrong route...');
+    res.redirect('http://localhost:4200');
 });
 
 // Debug message, using port on
