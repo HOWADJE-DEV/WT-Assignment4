@@ -18,7 +18,7 @@ const app = express();
 const router = express.Router();
 
 // Setting up the port
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 // Setting up middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -57,11 +57,6 @@ app.use(async (req, res, next) => {
 app.use(router);
 router.use(userRouter);
 router.use(postRouter);
-
-// Redirect to localhost:4200
-app.get('/', (req, res) => {
-    res.redirect('https://wt-assignment4.onrender.com');
-});
 
 // Debug message, using port on
 app.listen(port, () => {
