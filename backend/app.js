@@ -18,7 +18,7 @@ const app = express();
 const router = express.Router();
 
 // Setting up the port
-const port = process.env.PORT || 3077;
+const port = process.env.PORT || 3000;
 
 // Setting up middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -59,7 +59,7 @@ router.use(userRouter);
 router.use(postRouter);
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello World, youre in the wrong route...');
 });
 
 // Debug message, using port on
