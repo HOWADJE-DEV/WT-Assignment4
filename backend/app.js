@@ -60,7 +60,6 @@ router.use(postRouter);
 
 // Debug message, using port on
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
 });
 
 // Connecting to the database
