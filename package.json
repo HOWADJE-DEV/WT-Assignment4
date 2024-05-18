@@ -31,7 +31,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.1",
     "multer": "*",
-    "bcrypt": "*"
+    "bcrypt": "*",
+    "concurrently": "*"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.7",
