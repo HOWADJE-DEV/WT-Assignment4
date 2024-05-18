@@ -5,7 +5,7 @@
     "build": "ng build",
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
     "start:backend": "node backend/app.js",
-    "start:frontend": "ng serve --proxy-config src/proxy.config.json"
+    "start:frontend": "ng serve --port 4200 --proxy-config src/proxy.config.json"
   },
   "private": true,
   "dependencies": {
