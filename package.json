@@ -2,6 +2,7 @@
   "name": "my-app2",
   "version": "0.0.0",
   "scripts": {
+    "build": "ng build",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "node backend/app.js",
     "start:frontend": "ng serve --proxy-config src/proxy.config.json"
