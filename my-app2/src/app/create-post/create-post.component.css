@@ -1,0 +1,27 @@
+.popup-container {
+    padding: 10px;
+    height: 100%;
+  }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .bottom-elements {
+    margin-top: auto;
+  }
+
+  .flex-grow {
+    flex-grow: 1;
+    height: 90%;
+  }
