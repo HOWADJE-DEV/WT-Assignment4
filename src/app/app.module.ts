@@ -13,16 +13,16 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { SinglePostComponent } from './single-post/single-post.component';
-import { PostService } from './api.service'; // Import PostService
-
-
+import { PostService } from './api.service'; 
+import { ReplacePipe } from '../app/replace.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
     CreatePostComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,

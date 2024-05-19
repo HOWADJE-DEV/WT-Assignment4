@@ -6,7 +6,7 @@
   <title>Website Layout</title>
 </head>
 
-<body [style.background-image]="'url(' + backgroundImage + ')'">
+  <body [style.background-image]="'url(' + backgroundImage + ')'">
 
 <header>
   <div style="display: flex; align-items: center; justify-content: center;">
@@ -36,12 +36,13 @@
       </button>
     </div>
   </div>
-
+  
+<!-- Posts -->
   <div *ngFor="let post of posts" style="background-color: rgba(255, 255, 255, 0.8);">
     <div class="question-post">
       <h2>{{ post?.title }}</h2>
       <div class="separator"></div>
-      <p>{{ post?.content }}</p>
+      <p [innerHTML]="post?.content | replace:'\n':'<br/>'"></p>
       
       <div class="buttons">
         <button *ngIf="!post.is_archived && userInfo?.id === post.user" mat-button (click)="archivePost(post._id)">Archive Post</button>
@@ -60,7 +61,9 @@
             <span class="material-icons" (click)="ratePost(post._id, 4)">star_border</span>
             <span class="material-icons" (click)="ratePost(post._id, 5)">star_border</span>
           </div>
-          <p *ngIf="post?.rating_value > 0" style="margin-left: 10px; position: relative; top: 3px;" >Rated: {{ post?.rating_value }}</p>
+          <p *ngIf="post?.rating_value > 0" style="margin-left: 10px; position: relative; top: 3px;" >
+            Rated: {{ post?.rating_value | number:'1.0-2' }}
+          </p>
         </div>
         <p>Published : {{ post?.createdAt | date:'medium' }}</p>
       </div>

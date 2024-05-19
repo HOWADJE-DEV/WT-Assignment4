@@ -5,12 +5,10 @@
       {{ post?.is_archived ? 'Archived' : 'Active' }}
     </span>
   </div>
-  
-    <p>{{ post?.content }}</p>
-
+    <p [innerHTML]="post?.content | replace:'\n':'<br/>'"></p>
     <div class="bottom-context">
       <p>Submitted By: {{ post?.author_username }}</p>
-      <p *ngIf="post?.rating_value > 0" >Rated: {{ post?.rating_value }}</p>
+      <p *ngIf="post?.rating_value > 0" >Rated: {{ post?.rating_value  | number:'1.0-2' }}</p>
       <p>Published : {{ post?.createdAt | date:'medium' }}</p>
     </div>
     
@@ -31,14 +29,13 @@
             <button *ngIf="!answer.isValidated && this.userInfo?.id == post.user" (click)="validateAnswer(answer._id)" title="Validate answer">&#10004;</button>
             <span *ngIf="answer.isValidated" style="color: green;" title="Validated">&#10004;</span>
           </div>
-          
         </div>
 
         <div style="margin-top: 10px; width: 100%;">
-          <p>{{ answer.text }}</p>
+          <p [innerHTML]="answer.text | replace:'\n':'<br/>'"></p>
           <div class="bottom-context">  
             <p>Answered by: {{ answer.username }}</p>
-            <p style="position: relative; right: 0;">Published : {{ answer.createdAt | date:'medium'}}</p>
+            <p style="position: relative; right: 10;">Published : {{ answer.createdAt | date:'medium'}}</p>
           </div>
           <form *ngIf="this.userInfo" (submit)="submitComment(answer._id, i)" style="padding-left: 10px;">
             <textarea [(ngModel)]="commentText[i]" name="commentText" placeholder="Write your comment here..." style="width: 98%;"></textarea>
@@ -46,16 +43,19 @@
           </form>
         </div>
       </div>
-      
-      
       <hr>
 
 <!-- Comments -->
       <div *ngFor="let comment of answer.comments" style="margin-left: 100px;">
-        <p>&#11153; {{ comment.text }}</p>
-        <div class="bottom-context">  
-          <p>Commented by: {{ comment.username }}</p>
-          <p>Published: {{ comment.createdAt | date:'medium'}}</p>
+        <div style="display: flex;">
+          <span>&#11153;</span>
+          <div style="width: 100%;">
+            <p [innerHTML]="comment.text | replace:'\n':'<br/>'"></p>
+            <div class="bottom-context">  
+              <p>Commented by: {{ comment.username }}</p>
+              <p style="position: relative; right: 10;">Published: {{ comment.createdAt | date:'medium'}}</p>
+            </div>
+          </div>
         </div>
         <hr>
       </div>

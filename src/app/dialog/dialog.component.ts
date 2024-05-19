@@ -25,6 +25,13 @@ export class DialogComponent implements OnInit {
   }
 
   createUser() {
+    if (!this.user.username || !this.user.password || !this.user.email) {
+      return;
+    }
+    if (!this.user.email.includes('@') || !this.user.email.includes('.')) {
+      console.error('Invalid email');
+      return;
+    }
     this.apiService.createUser(this.user).subscribe(
       (data) => {
         console.log('User created successfully', data);
