@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private url = 'http://localhost:3000';
+  private url = environment.BACKEND_URI;
+
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   createUser(data: { username: string; password: string; email: string; expert: boolean; }) {
@@ -89,11 +91,12 @@ archivePost(postId: string, token: string): Observable<any> {
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = environment.BACKEND_URI;
 
   constructor(private http: HttpClient) { }
 
   getPost(id: string): Observable<any> {
+    console.log("URL: ", this.apiUrl);
     return this.http.get(`${this.apiUrl}/post/${id}`);
   }
 }
