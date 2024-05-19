@@ -21,10 +21,14 @@ export class AppComponent implements OnInit {
   pagesNeeded: number = 1;
   userInfo: any;
   searchInput: string = '';
+  backgroundImage: string = '/assets/background1.jpg';
+  images = ['/assets/background1.jpg', '/assets/background2.jpg', '/assets/background3.jpg', '/assets/background4.jpg', '/assets/background5.jpg', '/assets/background6.jpg', '/assets/background7.jpg'];
 
   constructor(private apiService: ApiService, public dialog: MatDialog, private cookieService: CookieService, private postService: PostService) { };
 
   ngOnInit() {
+    const randomIndex = Math.floor(Math.random() * this.images.length);
+    this.backgroundImage = this.images[randomIndex];
     this.token = this.cookieService.get('token');
     this.getUserInfo();
     this.getPosts();
