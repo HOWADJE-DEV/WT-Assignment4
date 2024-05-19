@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "ng build",
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start": "ng serve --port 4200 --open",
     "start:backend": "node backend/app.js",
     "start:frontend": "ng serve --port 4200 --proxy-config src/proxy.config.json"
   },
